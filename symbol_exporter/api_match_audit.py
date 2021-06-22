@@ -36,7 +36,11 @@ def inner_loop(artifact):
 
 
 def inner_loop_and_write(artifact):
-    result = inner_loop(artifact)
+    try:
+        result = inner_loop(artifact)
+    except Exception as e:
+        print(e)
+        return
     if result is None:
         output = None
     else:
